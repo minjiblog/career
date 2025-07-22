@@ -1,15 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_JP, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import Seo from "../components/Seo";
+import { ThemeProvider } from "../context/ThemeProvider";
+import { LanguageProvider } from "../context/LanguageProvider";
+
+const notoSans = Noto_Sans_JP({
+  weight: ["400", "700"],
+  variable: "--font-noto-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,11 +38,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="ja" suppressHydrationWarning>
+      <body className={`${notoSans.variable} ${inter.variable} ${playfair.variable}`}>
+        <ThemeProvider>
+          <LanguageProvider>
+            <div className="antialiased">
+              <Seo />
+              {children}
+            </div>
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

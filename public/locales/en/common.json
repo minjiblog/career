@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "title": "MINJI BYUN\nHospitality × Web3 Creator",
+    "cta_project": "Discuss a project",
+    "cta_resume": "Download résumé"
+  },
+  "contact": {
+    "heading": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send"
+  },
+  "footer": {
+    "privacy": "Privacy Policy"
+  }
+}

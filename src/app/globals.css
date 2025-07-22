@@ -24,3 +24,27 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Ensure consistent text colors across all browsers */
+* {
+  color: inherit;
+}
+
+/* Default text colors for light and dark modes */
+.text-default {
+  color: #374151; /* gray-700 */
+}
+
+.dark .text-default {
+  color: #d1d5db; /* gray-300 */
+}
+
+/* Ensure headings have proper colors */
+h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+}
+
+/* Ensure paragraphs and spans have proper colors */
+p, span, div {
+  color: inherit;
+}

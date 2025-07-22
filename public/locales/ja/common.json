@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "title": "MINJI BYUN\nホスピタリティ × Web3 クリエイター",
+    "cta_project": "プロジェクト相談はこちら",
+    "cta_resume": "履歴書をダウンロード"
+  },
+  "contact": {
+    "heading": "お問い合わせ",
+    "name": "氏名",
+    "email": "メール",
+    "message": "お問い合わせ内容",
+    "send": "送信する"
+  },
+  "footer": {
+    "copyright": "2025 Minji Byun",
+    "privacy": "プライバシーポリシー"
+  }
+}
