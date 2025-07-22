@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Generator - Minji Byun Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+        }
+        
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0066FF 0%, #4F46E5 50%, #FFD400 100%);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .og-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+        
+        .og-title {
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+        
+        .og-subtitle {
+            font-size: 36px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .og-description {
+            font-size: 24px;
+            max-width: 800px;
+            line-height: 1.4;
+            opacity: 0.8;
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            right: -100px;
+        }
+        
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: -75px;
+            left: -75px;
+        }
+        
+        .circle-3 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+        }
+        
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            max-width: 1200px;
+        }
+        
+        .instructions h3 {
+            color: #0066FF;
+            margin-bottom: 15px;
+        }
+        
+        .instructions p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="og-image" id="ogImage">
+        <div class="decorative-elements">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+        </div>
+        
+        <div class="og-content">
+            <div class="og-title">MINJI BYUN</div>
+            <div class="og-subtitle">Hospitality × Web3 × Global</div>
+            <div class="og-description">
+                Multilingual Professional | Hotel Management | Web3/AI Integration
+            </div>
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <h3>📸 OG 이미지 생성 방법</h3>
+        <p><strong>1.</strong> 위의 이미지를 스크린샷으로 캡처하세요 (1200x630px)</p>
+        <p><strong>2.</strong> 캡처한 이미지를 <code>og-image.jpg</code> 파일명으로 저장하세요</p>
+        <p><strong>3.</strong> <code>/public/</code> 폴더에 업로드하세요</p>
+        <p><strong>4.</strong> 또는 Canva, Figma 등의 디자인 툴을 사용하여 1200x630px 크기로 제작하세요</p>
+        
+        <h3>🎨 디자인 가이드라인</h3>
+        <p><strong>색상:</strong> Primary #0066FF (코발트 블루), Accent #FFD400 (라이트 골드)</p>
+        <p><strong>폰트:</strong> 굵은 산세리프 폰트 권장</p>
+        <p><strong>크기:</strong> 정확히 1200x630px (Facebook, Twitter, LinkedIn 최적화)</p>
+        <p><strong>텍스트:</strong> 명확하고 읽기 쉬운 크기로 설정</p>
+    </div>
+    
+    <script>
+        // 브라우저 개발자 도구에서 실행할 수 있는 스크린샷 코드
+        console.log(`
+OG 이미지 생성을 위한 브라우저 스크린샷 방법:
+
+1. F12를 눌러 개발자 도구를 엽니다
+2. Console 탭으로 이동합니다
+3. 다음 코드를 실행합니다:
+
+// 스크린샷 캡처 (Chrome/Edge)
+const element = document.getElementById('ogImage');
+html2canvas(element, {
+    width: 1200,
+    height: 630,
+    scale: 1
+}).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'og-image.jpg';
+    link.href = canvas.toDataURL('image/jpeg', 0.9);
+    link.click();
+});
+
+주의: html2canvas 라이브러리가 필요합니다.
+        `);
+    </script>
+</body>
+</html>

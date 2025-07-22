@@ -1,0 +1,36 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://career-minjiblog.vercel.app/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Disallow sensitive areas (none for this portfolio site)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow social media crawlers for OGP
+User-agent: facebookexternalhit/*
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
