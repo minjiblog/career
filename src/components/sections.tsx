@@ -1,11 +1,10 @@
 "use client";
 
 import Section from "./Section";
-import { FaHotel, FaPlaneDeparture, FaLaptopCode, FaGamepad, FaSwimmer, FaRobot, FaGraduationCap, FaGuitar, FaCameraRetro, FaBicycle } from 'react-icons/fa';
+import { FaHotel, FaPlaneDeparture, FaLaptopCode, FaGraduationCap } from 'react-icons/fa';
 import React from "react";
 
-import { useTheme } from "../context/ThemeProvider";
-import { useForm } from "react-hook-form";
+
 import { useLanguage } from "../context/LanguageProvider";
 
 export const Hero = () => {
@@ -24,10 +23,7 @@ export const Hero = () => {
     }
   };
   
-  const t = (key: string) => {
-    const keys = key.split('.');
-    return keys.reduce((obj: any, k: string) => obj?.[k], translations[lang]) || key;
-  };
+  // Translation function removed as it's not used
   return (
     <section id="hero" className="relative py-8 md:py-12">
       {/* Decorative elements */}

@@ -1,7 +1,8 @@
 "use client";
 
 import Section from "../../components/Section";
-import { useLanguage } from "../../context/LanguageProvider";
+import { useLanguage } from '../../context/LanguageProvider';
+import Link from 'next/link';
 
 export default function PrivacyPolicy() {
   const { lang } = useLanguage();
@@ -228,12 +229,12 @@ export default function PrivacyPolicy() {
 
           {/* Back to Home */}
           <div className="text-center mt-12">
-            <a
+            <Link
               href="/"
               className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
             >
               {lang === 'ja' ? 'ホームに戻る' : 'Back to Home'}
-            </a>
+            </Link>
           </div>
         </div>
       </Section>
