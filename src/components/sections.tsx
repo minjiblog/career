@@ -8,22 +8,8 @@ import React from "react";
 import { useLanguage } from "../context/LanguageProvider";
 
 export const Hero = () => {
-  const { lang } = useLanguage();
+  const { lang, switchLang } = useLanguage();
   
-  const translations = {
-    ja: {
-      title: 'MINJI BYUN\nホスピタリティ × Web3 クリエイター',
-      cta_project: 'プロジェクト相談はこちら',
-      cta_resume: '履歴書をダウンロード'
-    },
-    en: {
-      title: 'MINJI BYUN\nHospitality × Web3 Creator',
-      cta_project: 'Discuss a project',
-      cta_resume: 'Download résumé'
-    }
-  };
-  
-  // Translation function removed as it's not used
   return (
     <section id="hero" className="relative py-8 md:py-12">
       {/* Decorative elements */}

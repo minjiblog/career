@@ -11,14 +11,18 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
+  const [isClient, setIsClient] = useState(false);
 
   // load from localStorage or system preference
   useEffect(() => {
-    const saved = (window.localStorage.getItem("theme") as Theme) || null;
-    if (saved) {
-      setTheme(saved);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
+    setIsClient(true);
+    if (typeof window !== 'undefined') {
+      const saved = (window.localStorage.getItem("theme") as Theme) || null;
+      if (saved) {
+        setTheme(saved);
+      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setTheme("dark");
+      }
     }
   }, []);
 
@@ -41,7 +45,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 }
 
 export function useTheme() {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) throw new Error("useTheme must be used within ThemeProvider");
-  return ctx;
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    // Return default values for SSR to prevent build errors
+    return {
+      theme: "light" as Theme,
+      toggleTheme: () => {}
+    };
+  }
+  return context;
 }

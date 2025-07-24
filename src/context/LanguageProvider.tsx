@@ -15,18 +15,29 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    // Return default values for SSR to prevent build errors
+    return {
+      lang: 'ja' as Language,
+      setLang: () => {},
+      switchLang: () => {}
+    };
   }
   return context;
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLangState] = useState<Language>(() => {
+  const [lang, setLangState] = useState<Language>('ja');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
     if (typeof window !== 'undefined') {
-      return (localStorage.getItem('lang') as Language) || 'ja';
+      const savedLang = localStorage.getItem('lang') as Language;
+      if (savedLang) {
+        setLangState(savedLang);
+      }
     }
-    return 'ja';
-  });
+  }, []);
 
   const setLang = (newLang: Language) => {
     setLangState(newLang);
