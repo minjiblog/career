@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-import Seo from "../components/Seo";
+// import Seo removed to fix Netlify prerender error
+// import Seo from "../components/Seo";
 import { ThemeProvider } from "../context/ThemeProvider";
 import { LanguageProvider } from "../context/LanguageProvider";
 
@@ -108,7 +109,7 @@ export default function RootLayout({
         <ThemeProvider>
           <LanguageProvider>
             <div className="antialiased">
-              <Seo />
+              {/* <Seo /> */}
               {children}
             </div>
           </LanguageProvider>
