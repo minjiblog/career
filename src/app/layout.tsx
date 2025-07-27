@@ -105,7 +105,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0066FF" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={`${notoSans.variable} ${inter.variable} ${playfair.variable}`}>
+      <body className={`${notoSans.variable} ${inter.variable} ${playfair.variable} text-white`}>
         <ThemeProvider>
           <LanguageProvider>
             <div className="antialiased">
