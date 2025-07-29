@@ -141,7 +141,7 @@ export const CertificatesSkills = () => {
         {currentContent.certs.map((c) => (
           <div
             key={c}
-            className="bg-white/80 dark:bg-white/10 rounded-card shadow-soft p-4 backdrop-blur-md"
+            className="bg-[#1a1a1a]/80 dark:bg-[#0a0a0a]/70 rounded-card shadow-soft p-4 backdrop-blur-md"
           >
             <p className="font-semibold text-accent">{c}</p>
           </div>
@@ -224,7 +224,7 @@ export function WhyHotelIndustry() {
       
       <div className="grid md:grid-cols-2 gap-8">
         {currentContent.reasons.map((reason, index) => (
-          <div key={index} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-card shadow-soft hover:shadow-lg transition-all duration-300 hover:scale-105">
+          <div key={index} className="bg-[#1a1a1a]/40 dark:bg-[#0a0a0a]/30 backdrop-blur-sm p-6 rounded-card shadow-soft hover:shadow-lg transition-all duration-300 hover:scale-105">
             <div className="flex items-start space-x-4">
               <div className="text-4xl mb-4 flex-shrink-0">
                 {reason.icon}
@@ -314,7 +314,7 @@ export const Projects = () => {
         {currentContent.items.slice(0, 2).map(({ title, desc, link }) => (
           <div
             key={title}
-            className={`rounded-card shadow-soft overflow-hidden bg-white/80 dark:bg-white/10 backdrop-blur-md transition-all duration-300 hover:scale-105 ${link ? 'cursor-pointer hover:shadow-lg' : ''}`}
+            className={`rounded-card shadow-soft overflow-hidden bg-[#1a1a1a]/80 dark:bg-[#0a0a0a]/70 backdrop-blur-md transition-all duration-300 hover:scale-105 ${link ? 'cursor-pointer hover:shadow-lg' : ''}`}
             onClick={link ? () => window.open(link, '_blank', 'noopener,noreferrer') : undefined}
           >
             <div className="p-6">
@@ -343,7 +343,7 @@ export const Projects = () => {
           {currentContent.items.slice(2).map(({ title, desc, link }) => (
             <div
               key={title}
-              className={`rounded-card shadow-soft overflow-hidden bg-white/80 dark:bg-white/10 backdrop-blur-md transition-all duration-300 hover:scale-105 ${link ? 'cursor-pointer hover:shadow-lg' : ''}`}
+              className={`rounded-card shadow-soft overflow-hidden bg-[#1a1a1a]/80 dark:bg-[#0a0a0a]/70 backdrop-blur-md transition-all duration-300 hover:scale-105 ${link ? 'cursor-pointer hover:shadow-lg' : ''}`}
               onClick={link ? () => window.open(link, '_blank', 'noopener,noreferrer') : undefined}
             >
               <div className="p-6">
@@ -423,7 +423,7 @@ export const Hobbies = () => {
       <h2 className="text-3xl font-bold mb-6 text-primary">{currentContent.heading}</h2>
       <ul className="grid gap-6 md:grid-cols-3">
         {currentContent.hobbies.map((hobby, index) => (
-          <li key={index} className="flex flex-col items-center text-center gap-3 bg-white/80 dark:bg-white/10 rounded-card shadow-soft p-6 backdrop-blur-md">
+          <li key={index} className="flex flex-col items-center text-center gap-3 bg-[#1a1a1a]/80 dark:bg-[#0a0a0a]/70 rounded-card shadow-soft p-6 backdrop-blur-md">
             <div className="text-4xl text-accent">{hobby.icon}</div>
             <p className="font-semibold">{hobby.title}<br />{hobby.subtitle}</p>
           </li>
@@ -509,7 +509,7 @@ export const PersonalStory = () => {
             </div>
             
             {/* Content card */}
-            <div className="flex-1 bg-white/90 dark:bg-gray-800/90 rounded-lg p-6 shadow-soft backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50">
+            <div className="flex-1 bg-[#1a1a1a]/90 dark:bg-[#0a0a0a]/80 rounded-lg p-6 shadow-soft backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50">
               <h3 className="text-xl font-semibold mb-3 text-primary dark:text-white">
                 {item.title}
               </h3>
