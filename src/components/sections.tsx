@@ -264,7 +264,7 @@ export const Projects = () => {
   
   const content = {
     ja: {
-      heading: "Projects / Achievements",
+      heading: "Side Projects",
       items: [
         {
           title: "NinjaNote KR 運営",
@@ -283,7 +283,7 @@ export const Projects = () => {
       ]
     },
     en: {
-      heading: "Projects / Achievements",
+      heading: "Side Projects",
       items: [
         {
           title: "NinjaNote KR Operation",
