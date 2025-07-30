@@ -30,10 +30,19 @@ export default function Home() {
               <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-400/6 to-blue-500/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '18s', animationDelay: '6s'}} />
               <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-purple-400/8 to-pink-500/6 rounded-full blur-3xl animate-pulse" style={{animationDuration: '20s', animationDelay: '10s'}} />
               
-              {/* Subtle moving particles */}
-              <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-cyan-300/40 rounded-full animate-ping" style={{animationDelay: '2s'}} />
-              <div className="absolute top-2/3 left-1/4 w-0.5 h-0.5 bg-purple-300/50 rounded-full animate-ping" style={{animationDelay: '8s'}} />
-              <div className="absolute bottom-1/3 right-1/5 w-1.5 h-1.5 bg-blue-300/30 rounded-full animate-ping" style={{animationDelay: '14s'}} />
+              {/* Starfield */}
+              {[...Array(40)].map((_, i) => {
+                const size = Math.random() * 1.5 + 0.5; // 0.5–2px
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 20; // 0–20s
+                const color = ['bg-cyan-300/40','bg-purple-300/40','bg-blue-300/40'][i%3];
+                return (
+                  <div key={i}
+                    className={`absolute rounded-full animate-ping ${color}`}
+                    style={{width: `${size}px`, height: `${size}px`, top: `${top}%`, left: `${left}%`, animationDelay: `${delay}s`, animationDuration: '2s'}} />
+                );
+              })}
             </div>
             
             {/* Subtle grid pattern */}
