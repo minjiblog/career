@@ -525,6 +525,36 @@ export const PersonalStory = () => {
   );
 };
 
+export function FinalMessage() {
+  const { lang } = useLanguage();
+  
+  const content = {
+    ja: {
+      heading: "マジマな一言",
+      message: "ホスピタリティの心で築いた信頼と、Web3・AIで描く未来を繋げ、グローバルに価値を創造し続けます。"
+    },
+    en: {
+      heading: "Final Message",
+      message: "I will continue to create global value by connecting the trust built through hospitality with the future envisioned through Web3 and AI."
+    }
+  };
+  
+  const currentContent = content[lang as keyof typeof content];
+  
+  return (
+    <Section id="final-message">
+      <div className="text-center max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold mb-8 text-primary">{currentContent.heading}</h2>
+        <div className="bg-[#1a1a1a]/80 dark:bg-[#0a0a0a]/70 rounded-card shadow-soft p-8 backdrop-blur-md border border-primary/20">
+          <p className="text-xl leading-relaxed text-white font-medium italic">
+            "{currentContent.message}"
+          </p>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 export const Contact = () => {
   const { lang, switchLang } = useLanguage();
 
