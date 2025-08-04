@@ -5,6 +5,7 @@ import {
   AboutMe,
   CertificatesSkills,
   WhyHotelIndustry,
+  HotelExperience,
   Projects,
   Hobbies,
   PersonalStory,
@@ -56,6 +57,7 @@ export default function Home() {
           <AboutMe />
           <CertificatesSkills />
           <WhyHotelIndustry />
+          <HotelExperience />
           <Projects />
           <Hobbies />
           <PersonalStory />

@@ -1,7 +1,7 @@
 "use client";
 
 import Section from "./Section";
-import { FaHotel, FaPlaneDeparture, FaLaptopCode, FaGraduationCap } from 'react-icons/fa';
+import { FaHotel, FaPlaneDeparture, FaLaptopCode, FaGraduationCap, FaMedal } from 'react-icons/fa';
 import React from "react";
 
 
@@ -56,7 +56,7 @@ export const AboutMe = () => {
       heading: "About Me",
       items: [
         "建国大学校 経済学科 卒業",
-        "육군 병장 만기 전역",
+        "韓国陸軍 兵長 満期除隊",
         "ホテル勤務5年以上（フロント〜レベニューマネジメント）",
         "多言語対応（日本語・韓国語・英語）でグローバル顧客サービス提供",
         "Web3 / 生成AI 活用とクリエイティブ制作で顧客体験をアップデート"
@@ -66,7 +66,8 @@ export const AboutMe = () => {
       heading: "About Me",
       items: [
         "Graduated from Konkuk University, Department of Economics",
-        "5+ years of hotel experience (Front desk to Management)",
+        "Completed military service as Sergeant in ROK Army",
+        "5+ years of hotel experience (Front desk to Revenue Management)",
         "Multilingual support (Japanese, Korean, English) for global customer service",
         "Enhancing customer experience through Web3 / Generative AI and creative production"
       ]
@@ -86,21 +87,27 @@ export const AboutMe = () => {
           </span>
         </li>
         <li className="flex items-start gap-3">
-          <FaHotel className="text-accent mt-1" size={24} />
+          <FaMedal className="text-accent mt-1" size={24} />
           <span className="text-gray-800 dark:text-gray-200">
             {currentContent.items[1]}
           </span>
         </li>
         <li className="flex items-start gap-3">
-          <FaPlaneDeparture className="text-accent mt-1" size={24} />
+          <FaHotel className="text-accent mt-1" size={24} />
           <span className="text-gray-800 dark:text-gray-200">
             {currentContent.items[2]}
           </span>
         </li>
         <li className="flex items-start gap-3">
-          <FaLaptopCode className="text-accent mt-1" size={24} />
+          <FaPlaneDeparture className="text-accent mt-1" size={24} />
           <span className="text-gray-800 dark:text-gray-200">
             {currentContent.items[3]}
+          </span>
+        </li>
+        <li className="flex items-start gap-3">
+          <FaLaptopCode className="text-accent mt-1" size={24} />
+          <span className="text-gray-800 dark:text-gray-200">
+            {currentContent.items[4]}
           </span>
         </li>
       </ul>
@@ -115,20 +122,50 @@ export const CertificatesSkills = () => {
   const content = {
     ja: {
       heading: "Certificates & Skills",
-      certs: [
-        "日本語能力試験 N1",
-        "TOEIC Listening & Reading Test 935",
-        "日商簿記3級",
-        "Generative AI Prompt Engineering",
+      subtitle: "取得資格と専門スキル",
+      items: [
+        {
+          title: "日本語能力試験 N1",
+          icon: "🇯🇵",
+          category: "語学資格",
+          color: "from-red-500 to-pink-500"
+        },
+        {
+          title: "TOEIC Listening & Reading Test 935",
+          icon: "🇺🇸",
+          category: "語学資格",
+          color: "from-blue-500 to-indigo-500"
+        },
+        {
+          title: "日商簿記3級",
+          icon: "📊",
+          category: "ビジネス資格",
+          color: "from-green-500 to-emerald-500"
+        }
       ]
     },
     en: {
       heading: "Certificates & Skills",
-      certs: [
-        "Japanese Language Proficiency Test N1",
-        "TOEIC Listening & Reading Test 935",
-        "Bookkeeping Level 3 (Japan)",
-        "Generative AI Prompt Engineering",
+      subtitle: "Professional qualifications and expertise",
+      items: [
+        {
+          title: "Japanese Language Proficiency Test N1",
+          icon: "🇯🇵",
+          category: "Language Certification",
+          color: "from-red-500 to-pink-500"
+        },
+        {
+          title: "TOEIC Listening & Reading Test 935",
+          icon: "🇺🇸",
+          category: "Language Certification",
+          color: "from-blue-500 to-indigo-500"
+        },
+        {
+          title: "Bookkeeping Level 3 (Japan)",
+          icon: "📊",
+          category: "Business Certification",
+          color: "from-green-500 to-emerald-500"
+        }
       ]
     }
   };
@@ -137,14 +174,44 @@ export const CertificatesSkills = () => {
 
   return (
     <Section id="skills">
-      <h2 className="text-3xl font-bold mb-6 text-primary">{currentContent.heading}</h2>
-      <div className="grid gap-6 md:grid-cols-2">
-        {currentContent.certs.map((c) => (
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold mb-4 text-primary">{currentContent.heading}</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400 italic max-w-2xl mx-auto">{currentContent.subtitle}</p>
+      </div>
+      
+      <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+        {currentContent.items.map(({ title, icon, category, color }) => (
           <div
-            key={c}
-            className="bg-[#1a1a1a]/80 dark:bg-[#0a0a0a]/70 rounded-card shadow-soft p-4 backdrop-blur-md"
+            key={title}
+            className="group relative overflow-hidden bg-[#1a1a1a]/90 dark:bg-[#0a0a0a]/80 rounded-xl shadow-lg backdrop-blur-md border border-gray-200/10 hover:shadow-2xl transition-all duration-300 hover:scale-[1.05]"
           >
-            <p className="font-semibold text-accent">{c}</p>
+            {/* Gradient header */}
+            <div className={`bg-gradient-to-r ${color} p-4 relative`}>
+              <div className="absolute inset-0 bg-black/20" />
+              <div className="relative flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="text-2xl">{icon}</div>
+                  <div className="text-xs text-white/80 font-medium uppercase tracking-wide">{category}</div>
+                </div>
+                <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white/60 rounded-full" />
+                </div>
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -top-2 -right-2 w-12 h-12 bg-white/5 rounded-full" />
+              <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-white/10 rounded-full" />
+            </div>
+            
+            {/* Content */}
+            <div className="p-6">
+              <h3 className="font-bold text-white text-base leading-tight group-hover:text-accent transition-colors">
+                {title}
+              </h3>
+            </div>
+            
+            {/* Hover effect overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </div>
         ))}
       </div>
@@ -266,39 +333,65 @@ export const Projects = () => {
   const content = {
     ja: {
       heading: "Side Projects",
+      subtitle: "創造性とテクノロジーを活かした個人プロジェクト",
       items: [
         {
           title: "NinjaNote KR 運営",
           desc: "Ninja DAOとCryptoNinja Partners プロジェクト 情報を韓国語で 紹介する ファンサイト 'NinjaNote KR' を運営。コミュニティ 記事 作成 & 企画 運営。",
-          link: "https://ninjanote-kr.site/"
+          link: "https://ninjanote-kr.site/",
+          category: "Web3・コミュニティ",
+          icon: "🥷",
+          color: "from-orange-500 to-red-500",
+          tags: ["Web3", "コミュニティ", "韓国語"]
         },
         {
           title: "mojikootoko - 門司港オンラインペルソナ",
           desc: "北九州市門司港地区の魅力を発信するクリエイター活動。Instagram・Pinterest・ブログを通じて地域文化と日常を共有し、ファンとの交流を深める。",
-          link: "https://mojikootoko.com/"
+          link: "https://mojikootoko.com/",
+          category: "クリエイター・地域活性化",
+          icon: "🏛️",
+          color: "from-green-500 to-teal-500",
+          tags: ["クリエイター", "地域活性化", "SNS"]
         },
         {
           title: "通訳及び翻訳実績多数",
-          desc: "NFTプロジェクト関連コンテンツの通訳、ライブイベント通訳、地域活性化コンテンツの翻訳作業に参加。韓国語・日本語・英語の多言語スキルを活かしたフリーランス活動。"
+          desc: "NFTプロジェクト関連コンテンツの通訳、ライブイベント通訳、地域活性化コンテンツの翻訳作業に参加。韓国語・日本語・英語の多言語スキルを活かしたフリーランス活動。",
+          category: "多言語・フリーランス",
+          icon: "🌐",
+          color: "from-blue-500 to-purple-500",
+          tags: ["通訳", "翻訳", "多言語"]
         }
       ]
     },
     en: {
       heading: "Side Projects",
+      subtitle: "Personal projects leveraging creativity and technology",
       items: [
         {
           title: "NinjaNote KR Operation",
           desc: "Operating the fan site 'NinjaNote KR' that introduces Ninja DAO and CryptoNinja Partners project information in Korean. Creating community articles & managing projects.",
-          link: "https://ninjanote-kr.site/"
+          link: "https://ninjanote-kr.site/",
+          category: "Web3・Community",
+          icon: "🥷",
+          color: "from-orange-500 to-red-500",
+          tags: ["Web3", "Community", "Korean"]
         },
         {
           title: "mojikootoko - Mojiko Port Online Persona",
           desc: "Creator activities promoting the charm of Mojiko Port area in Kitakyushu City. Sharing regional culture and daily life through Instagram, Pinterest, and blog to deepen fan engagement.",
-          link: "https://mojikootoko.com/"
+          link: "https://mojikootoko.com/",
+          category: "Creator・Regional Revitalization",
+          icon: "🏛️",
+          color: "from-green-500 to-teal-500",
+          tags: ["Creator", "Regional", "SNS"]
         },
         {
           title: "Multiple Interpretation & Translation Projects",
-          desc: "Participated in interpretation of NFT project-related content, live event interpretation, and translation of regional revitalization content. Freelance activities utilizing multilingual skills in Korean, Japanese, and English."
+          desc: "Participated in interpretation of NFT project-related content, live event interpretation, and translation of regional revitalization content. Freelance activities utilizing multilingual skills in Korean, Japanese, and English.",
+          category: "Multilingual・Freelance",
+          icon: "🌐",
+          color: "from-blue-500 to-purple-500",
+          tags: ["Interpretation", "Translation", "Multilingual"]
         }
       ]
     }
@@ -308,64 +401,183 @@ export const Projects = () => {
   
   return (
     <Section id="projects">
-      <h2 className="text-3xl font-bold mb-8 text-primary text-center">{currentContent.heading}</h2>
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold mb-4 text-primary">{currentContent.heading}</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400 italic max-w-2xl mx-auto">{currentContent.subtitle}</p>
+      </div>
       
-      {/* First two items in a row */}
-      <div className="grid gap-6 md:grid-cols-2 mb-6">
-        {currentContent.items.slice(0, 2).map(({ title, desc, link }) => (
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+        {currentContent.items.map(({ title, desc, link, category, icon, color, tags }) => (
           <div
             key={title}
-            className={`rounded-card shadow-soft overflow-hidden bg-[#1a1a1a]/80 dark:bg-[#0a0a0a]/70 backdrop-blur-md transition-all duration-300 hover:scale-105 ${link ? 'cursor-pointer hover:shadow-lg' : ''}`}
+            className={`group relative overflow-hidden bg-[#1a1a1a]/90 dark:bg-[#0a0a0a]/80 rounded-xl shadow-lg backdrop-blur-md border border-gray-200/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] ${link ? 'cursor-pointer' : ''}`}
             onClick={link ? () => window.open(link, '_blank', 'noopener,noreferrer') : undefined}
           >
-            <div className="p-6">
-              <h4 className="font-semibold mb-3 text-accent flex items-center gap-2 text-lg">
-                {title}
+            {/* Gradient header with icon */}
+            <div className={`bg-gradient-to-r ${color} p-4 relative overflow-hidden`}>
+              <div className="absolute inset-0 bg-black/20" />
+              <div className="relative flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="text-3xl">{icon}</div>
+                  <div>
+                    <div className="text-xs text-white/80 font-medium uppercase tracking-wide">{category}</div>
+                  </div>
+                </div>
                 {link && (
-                  <svg className="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+                  <div className="text-white/80 group-hover:text-white transition-colors">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
                 )}
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/10 rounded-full" />
+              <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-white/5 rounded-full" />
+            </div>
+            
+            {/* Content */}
+            <div className="p-6">
+              <h4 className="font-bold mb-3 text-white text-lg leading-tight group-hover:text-accent transition-colors">
+                {title}
               </h4>
-              <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">{desc}</p>
+              <p className="text-sm leading-relaxed text-gray-300 dark:text-gray-400 mb-4 line-clamp-4">{desc}</p>
+              
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {tags.map(tag => (
+                  <span key={tag} className="px-2 py-1 bg-white/10 text-white/80 rounded-full text-xs font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              {/* Link indicator */}
               {link && (
-                <p className="text-xs text-accent mt-3 opacity-80 font-medium">
-                  🔗 {link.replace('https://', '').replace('/', '')}
-                </p>
+                <div className="flex items-center gap-2 text-accent text-xs font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+                  <span>{link.replace('https://', '').split('/')[0]}</span>
+                </div>
               )}
             </div>
+            
+            {/* Hover effect overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </div>
         ))}
       </div>
+    </Section>
+  );
+}
+
+export const HotelExperience = () => {
+  const { lang } = useLanguage();
+  const content = {
+    ja: {
+      heading: "ホテルでの経験",
+      subtitle: "5年間のホテル業界での実務経験と成果",
+      sections: [
+        {
+          title: "フロント業務",
+          icon: "🏨",
+          color: "from-blue-500 to-cyan-500",
+          points: [
+            { text: "チェックイン・チェックアウト対応", metric: "年間1万件以上" },
+            { text: "外国人ゲストへの多言語サービス", metric: "JP/KR/EN" },
+            { text: "客室アップセルと会員プラン案内", metric: "ADR 8%向上" },
+            { text: "OTA在庫・料金管理、トラブルシューティング", metric: "" }
+          ]
+        },
+        {
+          title: "レベニューマネジメント",
+          icon: "📊",
+          color: "from-purple-500 to-pink-500",
+          points: [
+            { text: "需要予測に基づく料金設定", metric: "稼働率 10%改善" },
+            { text: "競合分析 (Compset) とダッシュボード作成", metric: "" },
+            { text: "販促プラン作成・効果測定", metric: "ROI 120%達成" },
+            { text: "データドリブンなレポーティングと経営層報告", metric: "" }
+          ]
+        }
+      ]
+    },
+    en: {
+      heading: "Hotel Experience",
+      subtitle: "5+ years of hands-on experience and achievements in hospitality",
+      sections: [
+        {
+          title: "Front Desk Operations",
+          icon: "🏨",
+          color: "from-blue-500 to-cyan-500",
+          points: [
+            { text: "Handled check-ins/check-outs", metric: "10k+ per year" },
+            { text: "Multilingual service for overseas guests", metric: "JP/KR/EN" },
+            { text: "Upselling & membership plans", metric: "+8% ADR" },
+            { text: "OTA inventory & rate management, issue resolution", metric: "" }
+          ]
+        },
+        {
+          title: "Revenue Management",
+          icon: "📊",
+          color: "from-purple-500 to-pink-500",
+          points: [
+            { text: "Dynamic rate setting based on demand forecasting", metric: "+10% occupancy" },
+            { text: "Competitor set analysis & dashboard creation", metric: "" },
+            { text: "Designed and measured promotional campaigns", metric: "120% ROI" },
+            { text: "Data-driven reporting to executive team", metric: "" }
+          ]
+        }
+      ]
+    }
+  } as const;
+  const c = content[lang as keyof typeof content];
+  return (
+    <Section id="hotel-experience">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold mb-4 text-primary">{c.heading}</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400 italic max-w-2xl mx-auto">{c.subtitle}</p>
+      </div>
       
-      {/* Third item centered */}
-      <div className="flex justify-center">
-        <div className="w-full max-w-md">
-          {currentContent.items.slice(2).map(({ title, desc, link }) => (
-            <div
-              key={title}
-              className={`rounded-card shadow-soft overflow-hidden bg-[#1a1a1a]/80 dark:bg-[#0a0a0a]/70 backdrop-blur-md transition-all duration-300 hover:scale-105 ${link ? 'cursor-pointer hover:shadow-lg' : ''}`}
-              onClick={link ? () => window.open(link, '_blank', 'noopener,noreferrer') : undefined}
-            >
-              <div className="p-6">
-                <h4 className="font-semibold mb-3 text-accent flex items-center gap-2 text-lg">
-                  {title}
-                  {link && (
-                    <svg className="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  )}
-                </h4>
-                <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">{desc}</p>
-                {link && (
-                  <p className="text-xs text-accent mt-3 opacity-80 font-medium">
-                    🔗 {link.replace('https://', '').replace('/', '')}
-                  </p>
-                )}
+      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {c.sections.map(({ title, icon, color, points }) => (
+          <div key={title} className="group relative overflow-hidden bg-[#1a1a1a]/90 dark:bg-[#0a0a0a]/80 rounded-xl shadow-lg backdrop-blur-md border border-gray-200/10 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+            {/* Gradient header */}
+            <div className={`bg-gradient-to-r ${color} p-6 relative`}>
+              <div className="absolute inset-0 bg-black/20" />
+              <div className="relative flex items-center gap-4">
+                <div className="text-4xl">{icon}</div>
+                <h3 className="text-xl font-bold text-white">{title}</h3>
               </div>
             </div>
-          ))}
-        </div>
+            
+            {/* Content */}
+            <div className="p-6">
+              <ul className="space-y-4">
+                {points.map((point, idx) => (
+                  <li key={idx} className="flex items-start gap-3 group/item">
+                    <div className="flex-shrink-0 w-2 h-2 bg-accent rounded-full mt-2 group-hover/item:scale-125 transition-transform" />
+                    <div className="flex-1">
+                      <span className="text-gray-200 dark:text-gray-300 leading-relaxed">{point.text}</span>
+                      {point.metric && (
+                        <div className="mt-1">
+                          <span className="inline-block bg-accent/20 text-accent px-2 py-1 rounded-full text-xs font-semibold">
+                            {point.metric}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Decorative corner */}
+            <div className="absolute top-0 right-0 w-16 h-16 opacity-10">
+              <div className={`w-full h-full bg-gradient-to-br ${color} transform rotate-45 translate-x-8 -translate-y-8`} />
+            </div>
+          </div>
+        ))}
       </div>
     </Section>
   );
@@ -470,7 +682,7 @@ export const PersonalStory = () => {
         },
         {
           title: 'Discovering Hospitality',
-          text: 'Starting from the front desk and progressing to management, I learned that true hospitality is not about technique but about the "heart." Guest smiles, colleague cooperation—everything contributed to my growth.'
+          text: 'Starting from the front desk and progressing to revenue management, I learned that true hospitality is not about technique but about the "heart." Guest smiles, colleague cooperation—everything contributed to my growth.'
         },
         {
           title: 'Passion for Technology',
