@@ -78,39 +78,62 @@ export const AboutMe = () => {
   
   return (
     <Section id="about">
-      <h2 className="text-3xl font-bold mb-6 text-primary">{currentContent.heading}</h2>
-      <ul className="space-y-4 text-lg">
-        <li className="flex items-start gap-3">
-          <FaGraduationCap className="text-accent mt-1" size={24} />
-          <span className="text-gray-800 dark:text-gray-200">
-            {currentContent.items[0]}
-          </span>
-        </li>
-        <li className="flex items-start gap-3">
-          <FaMedal className="text-accent mt-1" size={24} />
-          <span className="text-gray-800 dark:text-gray-200">
-            {currentContent.items[1]}
-          </span>
-        </li>
-        <li className="flex items-start gap-3">
-          <FaHotel className="text-accent mt-1" size={24} />
-          <span className="text-gray-800 dark:text-gray-200">
-            {currentContent.items[2]}
-          </span>
-        </li>
-        <li className="flex items-start gap-3">
-          <FaPlaneDeparture className="text-accent mt-1" size={24} />
-          <span className="text-gray-800 dark:text-gray-200">
-            {currentContent.items[3]}
-          </span>
-        </li>
-        <li className="flex items-start gap-3">
-          <FaLaptopCode className="text-accent mt-1" size={24} />
-          <span className="text-gray-800 dark:text-gray-200">
-            {currentContent.items[4]}
-          </span>
-        </li>
-      </ul>
+      <h2 className="text-3xl font-bold mb-8 text-primary text-center">{currentContent.heading}</h2>
+      
+      <div className="grid md:grid-cols-3 gap-8 items-start max-w-6xl mx-auto">
+        {/* Profile Photo */}
+        <div className="md:col-span-1 flex justify-center">
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
+            <div className="relative">
+              <img 
+                src="/profile-photo.png" 
+                alt="Minji Byun Profile"
+                className="w-64 h-64 md:w-72 md:h-72 object-cover rounded-xl shadow-2xl border-2 border-white/10 group-hover:scale-105 transition-transform duration-300"
+              />
+              {/* Decorative elements */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent rounded-full animate-pulse"></div>
+              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-primary rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+            </div>
+          </div>
+        </div>
+        
+        {/* About Me Info */}
+        <div className="md:col-span-2">
+          <ul className="space-y-4 text-lg">
+            <li className="flex items-start gap-3 group hover:bg-white/5 p-3 rounded-lg transition-colors">
+              <FaGraduationCap className="text-accent mt-1 group-hover:scale-110 transition-transform" size={24} />
+              <span className="text-gray-800 dark:text-gray-200 group-hover:text-white transition-colors">
+                {currentContent.items[0]}
+              </span>
+            </li>
+            <li className="flex items-start gap-3 group hover:bg-white/5 p-3 rounded-lg transition-colors">
+              <FaMedal className="text-accent mt-1 group-hover:scale-110 transition-transform" size={24} />
+              <span className="text-gray-800 dark:text-gray-200 group-hover:text-white transition-colors">
+                {currentContent.items[1]}
+              </span>
+            </li>
+            <li className="flex items-start gap-3 group hover:bg-white/5 p-3 rounded-lg transition-colors">
+              <FaHotel className="text-accent mt-1 group-hover:scale-110 transition-transform" size={24} />
+              <span className="text-gray-800 dark:text-gray-200 group-hover:text-white transition-colors">
+                {currentContent.items[2]}
+              </span>
+            </li>
+            <li className="flex items-start gap-3 group hover:bg-white/5 p-3 rounded-lg transition-colors">
+              <FaPlaneDeparture className="text-accent mt-1 group-hover:scale-110 transition-transform" size={24} />
+              <span className="text-gray-800 dark:text-gray-200 group-hover:text-white transition-colors">
+                {currentContent.items[3]}
+              </span>
+            </li>
+            <li className="flex items-start gap-3 group hover:bg-white/5 p-3 rounded-lg transition-colors">
+              <FaLaptopCode className="text-accent mt-1 group-hover:scale-110 transition-transform" size={24} />
+              <span className="text-gray-800 dark:text-gray-200 group-hover:text-white transition-colors">
+                {currentContent.items[4]}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </Section>
   );
 };
