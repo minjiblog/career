@@ -8,7 +8,6 @@ import {
   Projects,
   Hobbies,
   PersonalStory,
-  FinalMessage,
   Contact,
 } from "../components/sections";
 
@@ -60,7 +59,6 @@ export default function Home() {
           <Projects />
           <Hobbies />
           <PersonalStory />
-          <FinalMessage />
           <Contact />
     </main>
   );
